@@ -31,5 +31,5 @@ def _get_raw_counts(count_matrix):
 def main(path):
     raw_matrix = _load_raw_matrix(path)
     raw_count = _get_raw_counts(raw_matrix)
-    normalized_expression = _get_normalized_matrix(raw_matrix)
+    normalized_expression = get_normalized_matrix(raw_matrix)
     return (raw_count, normalized_expression)
