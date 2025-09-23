@@ -1,0 +1,6 @@
+celltype,num_features
+endothelial cell,8192
+stromal cell,8192
+lymphocyte,4096
+monocyte,2048
+macrophage,8192

@@ -1,0 +1,4 @@
+celltype,num_features
+microglial cell,16384
+endothelial cell,8192
+oligodendrocyte,8192

@@ -1,0 +1,10 @@
+celltype,num_features
+granulocytopoietic cell,4096
+hematopoietic precursor cell,8192
+granulocyte,8192
+promonocyte,8192
+monocyte,8192
+naïve T cell,8192
+megakaryocyte-erythroid progenitor cell,8192
+proerythroblast,8192
+erythroblast,4096
