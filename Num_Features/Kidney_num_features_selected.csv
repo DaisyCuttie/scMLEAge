@@ -1,11 +1,6 @@
 celltype,num_features
 fenestrated cell,8192
 epithelial cell of proximal tubule,256
-kidney loop of Henle thick ascending limb epithelial cell,8192
 macrophage,8192
-kidney proximal convoluted tubule epithelial cell,8192
-fenestrated cell,8192
-epithelial cell of proximal tubule,256
-kidney loop of Henle thick ascending limb epithelial cell,8192
-macrophage,8192
-kidney proximal convoluted tubule epithelial cell,8192
+proximal convoluted tubule epithelial cell,8192
+loop of Henle thick ascending limb epithelial cell,8192
