@@ -3,7 +3,7 @@
 
 scBayesAge is a single-cell RNA transcriptomic cell-type-specific clock that can help researchers study the biological ages of organisms in the single-cell level. 
 
-![alt text](Model_Figures/Limb-Muscle_skeletal muscle satellite cell_model.png)
+![](https://github.com/DaisyCuttie/scBayesAge/blob/991ded91cc4f1eb1a0acccbb78830c710dce1868/Model_Figures/Limb-Muscle_skeletal%20muscle%20satellite%20cell_model.png)
 
 The examples here are showing the applications to the Tabula Muris Senis data https://rdcu.be/eJI2Y that you can download from here https://figshare.com/articles/dataset/Processed_files_to_use_with_scanpy_/8273102/2
 
