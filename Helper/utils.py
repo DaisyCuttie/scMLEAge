@@ -6,6 +6,7 @@ import os
 from scipy import stats
 from sklearn.linear_model import LinearRegression
 import shutil
+from scipy.sparse import issparse
 
 def get_normalized_matrix(count_matrix):
     anndata = sc.AnnData(count_matrix)
@@ -35,14 +36,13 @@ def filter_low_genes(raw_count, celltype_dict):
         selected_gene_by_frac[celltype] = top_genes
     return selected_gene_by_frac
 
-def get_correlated_genes(adataObject, organ, selected_gene_by_frac):
-    cor_info_path = f"HiExpr_correlation_info_matrix/Tabula_Muris_{organ}"
-    os.makedirs(cor_info_path, exist_ok=True)
-    if os.listdir(cor_info_path):
+def get_correlated_genes(adataObject, organ, selected_gene_by_frac, file_path):
+    os.makedirs(file_path, exist_ok=True)
+    if os.listdir(file_path):
         print("Correlation output directory already exists.")
         print("Deleting previous correlated_info files...")
-        shutil.rmtree(cor_info_path)
-        os.makedirs(cor_info_path)
+        shutil.rmtree(file_path)
+        os.makedirs(file_path)
 
     # Transpose normalized counts to genes x cells DataFrame
     norm_counts = pd.DataFrame(
@@ -82,7 +82,7 @@ def get_correlated_genes(adataObject, organ, selected_gene_by_frac):
             "Absolute Correlation": abs_corr,
             "P-values": p_vals
         }, index=curr_genes)
-        df.to_csv(os.path.join(cor_info_path, f"no_absolute_{celltype}_subtype_correlations.csv"))
+        df.to_csv(os.path.join(file_path, f"{celltype}_correlation_info.csv"))
 
     return correlated_index
 
