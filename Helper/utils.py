@@ -7,6 +7,8 @@ from scipy import stats
 from sklearn.linear_model import LinearRegression
 import shutil
 from scipy.sparse import issparse
+from scipy.stats import pearsonr
+
 
 def get_normalized_matrix(count_matrix):
     anndata = sc.AnnData(count_matrix)
@@ -19,6 +21,7 @@ def get_normalized_matrix(count_matrix):
     normalized_expression = normalized_expression.T
     normalized_expression = normalized_expression.loc[:, (normalized_expression != 0).any(axis=0)]
     return(normalized_expression)
+
 
 def filter_low_genes(raw_count, celltype_dict):
     selected_gene_by_frac = dict()
@@ -35,6 +38,7 @@ def filter_low_genes(raw_count, celltype_dict):
         top_genes = list(counts_top_genes.columns)[-int(counts_top_genes.shape[1]):]
         selected_gene_by_frac[celltype] = top_genes
     return selected_gene_by_frac
+
 
 def get_correlated_genes(adataObject, organ, selected_gene_by_frac, file_path):
     os.makedirs(file_path, exist_ok=True)
@@ -87,7 +91,6 @@ def get_correlated_genes(adataObject, organ, selected_gene_by_frac, file_path):
     return correlated_index
 
 
-## directly copied from main text
 def get_metaCells(celltype_dict, raw_counts, age_dict):
     metaCells = {}
     metaAges = {}
@@ -110,7 +113,7 @@ def get_metaCells(celltype_dict, raw_counts, age_dict):
         metaCells[celltype] = np.array(metaCells[celltype])
     return metaCells, metaAges
 
-## directly copied from main text
+
 def get_gene_frequencies(metaCells, metaAges, gene_names, selected_gene_by_frac, returnTrueFreq = False):
     freq_age_group = {}
     pred_freq_matrices = {}
@@ -147,3 +150,22 @@ def get_gene_frequencies(metaCells, metaAges, gene_names, selected_gene_by_frac,
         pred_freq_matrices[celltype] = pred_freqs.to_numpy()
         freq_age_group[celltype] = curr_ages
     return pred_freq_matrices, freq_age_group
+
+
+def powers_of_two_counts(max_len: int) -> list[int]:
+    """Return [1,2,4,...] up to max_len (inclusive)."""
+    counts, i = [], 0
+    while (1 << i) <= max_len:
+        counts.append(1 << i)
+        i += 1
+    return counts or [1]
+
+
+def r2(x: np.ndarray, y: np.ndarray) -> float:
+    """Pearson R² with NaN safety."""
+    if len(x) == 0 or len(y) == 0:
+        return 0.0
+    r, _ = pearsonr(x, y)
+    if np.isnan(r):
+        return 0.0
+    return float(r**2)
