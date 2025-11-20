@@ -195,9 +195,9 @@ def run_celltype_pipeline(
     # plot 3-panel summary
     fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(24, 6), dpi=600)
     _plot_violin(file_path=r_square_file_path, ax=ax1, x=train_ages, y=store_train_predict,
-                 name=f"{celltype} (train)", record=False)
+                 name=celltype, record=False)
     _plot_violin(file_path=r_square_file_path, ax=ax2, x=test_ages, y=store_test_predict,
-                 name=f"{celltype} (test)")
+                 name=celltype)
     _plot_cell_count(ax3,
                      dict(sorted(Counter(ages).items())))
     fig.text(0.1, 1, f"Model using {optimal_gene_count} genes", fontsize=15)

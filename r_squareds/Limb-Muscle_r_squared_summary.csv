@@ -1,8 +1,8 @@
 ,R_squared
-mesenchymal stem cell (test),0.6895317660550669
-endothelial cell (test),0.6613230848019432
-macrophage (test),0.28227381102461446
-skeletal muscle satellite cell (test),0.812171995741706
-smooth muscle cell (test),0.6867426096286283
-T cell (test),0.7396696271880534
-B cell (test),0.9121641120363614
+mesenchymal stem cell,0.6895317660550669
+endothelial cell,0.6613230848019432
+macrophage,0.28227381102461446
+skeletal muscle satellite cell,0.812171995741706
+smooth muscle cell,0.6867426096286283
+T cell,0.7396696271880534
+B cell,0.9121641120363614
