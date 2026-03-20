@@ -163,7 +163,8 @@ def run_celltype_pipeline(
     donor_kf: KFold,
     organ: str,
     r_square_file_path: str,
-    fig_dir: str = "./Model_Figures"
+    fig_dir: str = "./Model_Figures",
+    record = True
 ) -> dict:
 
     raw_cells = np.array(adataObject.raw_counts[cell_group])          # genes x cells
@@ -197,7 +198,7 @@ def run_celltype_pipeline(
     _plot_violin(file_path=r_square_file_path, ax=ax1, x=train_ages, y=store_train_predict,
                  name=celltype, record=False)
     _plot_violin(file_path=r_square_file_path, ax=ax2, x=test_ages, y=store_test_predict,
-                 name=celltype)
+                 name=celltype, record=record)
     _plot_cell_count(ax3,
                      dict(sorted(Counter(ages).items())))
     fig.text(0.1, 1, f"Model using {optimal_gene_count} genes", fontsize=15)
