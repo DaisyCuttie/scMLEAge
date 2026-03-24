@@ -19,6 +19,9 @@ The examples here are the applications to the Tabula Muris Senis data https://rd
 ## How to run scMLEAge
 The example run is shown in the Tutorial.ipynb file.
 
+## Paper link
+https://doi.org/10.64898/2025.12.04.692166
+
 
 
 
