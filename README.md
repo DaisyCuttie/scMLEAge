@@ -1,5 +1,5 @@
 
-# scBayesAge
+# scMLEAge
 
 scBayesAge is a single-cell RNA transcriptomic cell-type-specific clock that can help researchers study the biological ages of organisms in the single-cell level. 
 
