@@ -63,25 +63,25 @@ def read_and_filter_h5ad(filepath, class_col="celltype", age_col="age", filter_g
         adata = sc.read_h5ad(filepath)
         
         if filter_gender:
-             filtered_adata = adata[adata.obs["sex"] == gender, :].copy()
+             adata = adata[adata.obs["sex"] == gender, :].copy()
                 
-        celltype_df = filtered_adata.obs[[class_col]].copy()
-        age_df = filtered_adata.obs[[age_col]].copy()
+        celltype_df = adata.obs[[class_col]].copy()
+        age_df = adata.obs[[age_col]].copy()
         
         # Apply the cell count threshold filtering
         celltype_df = _filter_low_counts(celltype_df, age_df, class_col, count_threshold)
     
         # Create a filtered AnnData object based on cell count filtering
-        filtered_adata = filtered_adata[celltype_df.index].copy()
+        filtered_adata = adata[celltype_df.index].copy()
         
         # Identify the skewed classes to filter based on age distribution
-        classes_to_filter = _get_skewed_count_info(filtered_adata, class_col, age_col, age_threshold)
+        classes_to_filter = _get_skewed_count_info(adata, class_col, age_col, age_threshold)
         
         if len(classes_to_filter):
             print(classes_to_filter[0], " has skewed cell counts")
             
         # Further filter the AnnData object based on age distribution
-        final_filtered_adata = filtered_adata[~filtered_adata.obs[class_col].isin(classes_to_filter)].copy()
+        final_filtered_adata = adata[~adata.obs[class_col].isin(classes_to_filter)].copy()
         
         return final_filtered_adata
     except Exception as e:

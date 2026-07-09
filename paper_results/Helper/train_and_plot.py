@@ -164,12 +164,13 @@ def run_celltype_pipeline(
     organ: str,
     r_square_file_path: str,
     fig_dir: str = "./Model_Figures",
-    record = True
+    record = True,
+    donor_col: str = "mouse.id"
 ) -> dict:
 
     raw_cells = np.array(adataObject.raw_counts[cell_group])          # genes x cells
     ages      = np.array([adataObject.age_dict[c] for c in cell_group])
-    donor_ids = np.array([adataObject.processed_adata.obs.loc[c, "mouse.id"] for c in cell_group])
+    donor_ids = np.array([adataObject.processed_adata.obs.loc[c, donor_col] for c in cell_group])
     unique_donors = np.unique(donor_ids)
 
     corr_idx_list = list(correlated_index[celltype])
