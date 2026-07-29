@@ -11,8 +11,6 @@ scMLEAge is a single-cell RNA transcriptomic cell-type-specific clock that can h
 
 ## Installation
 
-Tested on Python TODO (e.g. 3.10).
-
 ```bash
 git clone https://github.com/DaisyCuttie/scMLEAge.git
 cd scMLEAge
