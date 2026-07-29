@@ -20,6 +20,21 @@ conda activate scmleage
 
 pip install -r requirements.txt
 ```
+---
+
+## Input data requirements
+
+scMLEAge reads a single `.h5ad` file. It must have:
+
+| Requirement | Default | Notes |
+|---|---|---|
+| Raw (un-normalized) integer counts in `.X` | — | The likelihood model is defined on read counts, so normalized or log-transformed values will not work. |
+| A cell type column in `.obs` | `celltype` | Override with `--class-col`. |
+| An age column in `.obs` | `age` | Override with `--age-col`. |
+| Age values with a unit suffix | `m` (e.g. `3m`, `18m`, `24m`) | Override with `--age-substring`. Predicted ages are written back in the same format. |
+| A donor identifier in `.obs` |
+
+---
 
 ### Data
 The examples here are the applications to the Tabula Muris Senis data https://rdcu.be/eJI2Y that you can download from here https://figshare.com/articles/dataset/Processed_files_to_use_with_scanpy_/8273102/2
