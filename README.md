@@ -65,7 +65,7 @@ python run_scmleage_pipeline.py \
   --age-substring age_suffix
 ```
 
-Only `--input-h5ad` and `--organ` are required. However, class-col, age-col and age-substring is recommended if your age column and cell type column is not named as required above.
+Only `--input-h5ad` and `--organ` are required. However, `class-col`, `age-col` and `age-substring` is recommended if your age column and cell type column is not named as required above.
 
 <details>
 <summary>All options</summary>
