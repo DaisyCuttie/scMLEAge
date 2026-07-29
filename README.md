@@ -88,5 +88,17 @@ Only `--input-h5ad` and `--organ` are required. However, `class-col`, `age-col` 
 
 </details>
 
+## Outputs
+
+| Path | Contents |
+|---|---|
+| `Processed_data/{organ}_Processed_Data.h5ad` | Input data plus a `pred_age` column in `.obs` (formatted like the input, e.g. `14m`), PCA, and UMAP. |
+| `Model_Figures/` | One figure per cell type: predicted vs. chronological age. |
+| `R_Squareds/` | Cross-validated R² as a function of feature count, per cell type. |
+| Feature summary | Number of genes selected per cell type. |
+
+The pipeline also displays UMAPs colored by age and by cell type as it runs.
+
+---
 
 +++ This method facilitate as a cohesive framework for analyzing cellular aging patterns, enabling researchers to identify age-associated gene expression changes, train predictive models, and generate statistical visualizations for aging research applications.
