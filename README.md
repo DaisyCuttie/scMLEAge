@@ -9,11 +9,22 @@ scMLEAge is a single-cell RNA transcriptomic cell-type-specific clock that can h
 ![Limb-muscle cells](https://github.com/DaisyCuttie/scMLEAge/blob/main/paper_results/Model_Figures/Limb-Muscle_skeletal%20muscle%20satellite%20cell_model.png)
 ![Kidney](https://github.com/DaisyCuttie/scMLEAge/blob/main/paper_results/Model_Figures/Kidney_proximal%20convoluted%20tubule%20epithelial%20cell_model.png)
 
+## Installation
+
+Tested on Python TODO (e.g. 3.10).
+
+```bash
+git clone https://github.com/DaisyCuttie/scMLEAge.git
+cd scMLEAge
+
+conda create -n scmleage python=3.10 -y   # or python -m venv .venv
+conda activate scmleage
+
+pip install -r requirements.txt
+```
 
 ### Data
 The examples here are the applications to the Tabula Muris Senis data https://rdcu.be/eJI2Y that you can download from here https://figshare.com/articles/dataset/Processed_files_to_use_with_scanpy_/8273102/2
-
-
 
 
 ## How to run scMLEAge
